@@ -1,4 +1,4 @@
-# ☸️ Kubernetes — Complete Reference Guide
+# ☸️ Kubernetes — Complete Notes
 
 > A comprehensive guide covering Kubernetes architecture, components, workloads, networking, storage, security, and tooling.
 
