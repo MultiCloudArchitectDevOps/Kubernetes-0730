@@ -114,8 +114,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
    
    example:
    eksctl create cluster --name test \
-      --region ap-south-1 \
-   --node-type t2.small \
+      --region us-east-1 \
+   --node-type t2.medium \
 
 # after create cluster to update it
  aws eks update-kubeconfig --region <region> --name <cluster name>
