@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: myapp-applicationset
+  namespace: argocd
+
+spec:
+  generators:
+  - list:
+      elements:
+      - appname: myapp
+        namespace: myapp
+
+  template:
+    metadata:
+      name: '{{appname}}-argo-application'
+
+    spec:
+      project: default
+
+      source:
+        repoURL: https://github.com/CloudTechDevOps/Kubernetes-0730.git
+        targetRevision: HEAD
+        path: Day-5-Argocd
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+
+        automated:
+          selfHeal: true
+          prune: true
